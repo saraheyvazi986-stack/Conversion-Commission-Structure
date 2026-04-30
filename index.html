@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conversion Agent Commission Structure — Opo</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0f14;
+    --surface: #13161e;
+    --surface2: #1a1e29;
+    --border: #232838;
+    --gold: #c9a84c;
+    --gold2: #e8c97a;
+    --gold-dim: rgba(201,168,76,0.12);
+    --green: #3ecf8e;
+    --green-dim: rgba(62,207,142,0.1);
+    --red: #f25c54;
+    --text: #e8eaf2;
+    --muted: #6b7394;
+    --muted2: #8b93b8;
+    --t1: #4e7cff;
+    --t2: #3ecf8e;
+    --t3: #c9a84c;
+    --t4: #f5813e;
+    --t5: #e05cda;
+    --bronze: #cd7f32;
+    --silver: #a8b2c8;
+    --gold-tier: #c9a84c;
+    --platinum: #e2f0ff;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* GRID BG */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(201,168,76,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.03) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .wrapper {
+    position: relative;
+    z-index: 1;
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: 48px 32px 80px;
+  }
+
+  /* HEADER */
+  .header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 56px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 32px;
+  }
+  .logo {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .header-meta {
+    text-align: right;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+  }
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 10px;
+    letter-spacing: -0.02em;
+  }
+  h1 span { color: var(--gold); }
+  .subtitle {
+    color: var(--muted2);
+    font-size: 14px;
+    font-weight: 300;
+    max-width: 460px;
+  }
+
+  /* SECTION */
+  .section { margin-bottom: 48px; }
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+  h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .section-desc {
+    color: var(--muted2);
+    font-size: 13px;
+    font-weight: 300;
+    margin-bottom: 20px;
+  }
+
+  /* STAT CARDS */
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+  .stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+  }
+  .stat-label { font-size: 11px; color: var(--muted); font-family: 'DM Mono', monospace; letter-spacing: 0.08em; margin-bottom: 6px; }
+  .stat-val { font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 700; color: var(--gold2); }
+  .stat-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+  /* TIER TABLE */
+  .tier-table { width: 100%; border-collapse: collapse; }
+  .tier-table th {
+    text-align: left;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .tier-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+  }
+  .tier-table tr:last-child td { border-bottom: none; }
+  .tier-table tbody tr {
+    transition: background 0.15s;
+  }
+  .tier-table tbody tr:hover { background: rgba(255,255,255,0.02); }
+
+  .tier-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .tier-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .amount-range { font-family: 'DM Mono', monospace; font-size: 13px; color: var(--text); }
+  .commission-val {
+    font-family: 'DM Mono', monospace;
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .commission-type { font-size: 11px; color: var(--muted); margin-top: 2px; }
+  .bar-cell { min-width: 120px; }
+  .bar-wrap { background: var(--surface2); border-radius: 4px; height: 6px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 4px; }
+  .bar-label { font-size: 11px; color: var(--muted); margin-top: 4px; font-family: 'DM Mono', monospace; }
+
+  .note-cell { font-size: 12px; color: var(--muted2); }
+
+  /* BONUS TABLE */
+  .bonus-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-top: 8px;
+  }
+  .bonus-card {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px 18px;
+    background: var(--surface);
+    position: relative;
+    overflow: hidden;
+  }
+  .bonus-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .bonus-card.bronze::before { background: var(--bronze); }
+  .bonus-card.silver::before { background: var(--silver); }
+  .bonus-card.gold-t::before { background: var(--gold-tier); }
+  .bonus-card.platinum::before { background: linear-gradient(90deg, #a8d4ff, #e2f0ff, #c0e8ff); }
+
+  .bonus-tier-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+  .bonus-card.bronze .bonus-tier-name { color: var(--bronze); }
+  .bonus-card.silver .bonus-tier-name { color: var(--silver); }
+  .bonus-card.gold-t .bonus-tier-name { color: var(--gold-tier); }
+  .bonus-card.platinum .bonus-tier-name { color: var(--platinum); }
+
+  .bonus-req { font-size: 12px; color: var(--muted2); margin-bottom: 16px; }
+  .bonus-req strong { color: var(--text); font-weight: 500; }
+  .bonus-multiplier {
+    font-family: 'Syne', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1;
+  }
+  .bonus-card.bronze .bonus-multiplier { color: var(--bronze); }
+  .bonus-card.silver .bonus-multiplier { color: var(--silver); }
+  .bonus-card.gold-t .bonus-multiplier { color: var(--gold-tier); }
+  .bonus-card.platinum .bonus-multiplier { color: var(--platinum); }
+  .bonus-mult-sub { font-size: 11px; color: var(--muted); font-family: 'DM Mono', monospace; margin-top: 2px; }
+
+  .bonus-divider { height: 1px; background: var(--border); margin: 14px 0; }
+  .bonus-example { font-size: 11px; color: var(--muted); font-family: 'DM Mono', monospace; }
+  .bonus-example span { color: var(--text); }
+
+  /* RULES GRID */
+  .rules-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .rule-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .rule-icon {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    flex-shrink: 0;
+    background: var(--surface2);
+  }
+  .rule-title { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+  .rule-body { font-size: 12px; color: var(--muted2); line-height: 1.6; }
+  .rule-body strong { color: var(--text); font-weight: 500; }
+
+  /* CALCULATOR */
+  .calc-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 32px;
+  }
+  .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  .calc-label { font-size: 12px; color: var(--muted); font-family: 'DM Mono', monospace; letter-spacing: 0.08em; margin-bottom: 8px; }
+  .calc-input-wrap { position: relative; }
+  .calc-prefix {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'DM Mono', monospace;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .calc-input {
+    width: 100%;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 14px 12px 28px;
+    color: var(--text);
+    font-family: 'DM Mono', monospace;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .calc-input:focus { border-color: var(--gold); }
+  .calc-input::-webkit-inner-spin-button { -webkit-appearance: none; }
+
+  .calc-slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 4px;
+    background: var(--surface2);
+    border-radius: 4px;
+    outline: none;
+    margin-top: 12px;
+  }
+  .calc-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    background: var(--gold);
+    cursor: pointer;
+    box-shadow: 0 0 0 4px rgba(201,168,76,0.2);
+  }
+
+  .calc-results {
+    background: var(--surface2);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  .calc-result-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+  }
+  .calc-result-row:last-child { border-bottom: none; }
+  .calc-result-row .r-label { color: var(--muted2); }
+  .calc-result-row .r-val { font-family: 'DM Mono', monospace; font-weight: 500; }
+  .calc-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--gold-dim);
+  }
+  .calc-total-label { font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 700; }
+  .calc-total-val {
+    font-family: 'Syne', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--gold2);
+  }
+  .calc-tier-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    margin-top: 4px;
+  }
+
+  .tag {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    letter-spacing: 0.04em;
+    border: 1px solid;
+  }
+  .tag-min { color: var(--red); border-color: rgba(242,92,84,0.3); background: rgba(242,92,84,0.08); }
+  .tag-pct { color: var(--t5); border-color: rgba(224,92,218,0.3); background: rgba(224,92,218,0.08); }
+  .tag-fixed { color: var(--green); border-color: rgba(62,207,142,0.3); background: rgba(62,207,142,0.08); }
+  .tag-pct2 { color: var(--t4); border-color: rgba(245,129,62,0.3); background: rgba(245,129,62,0.08); }
+
+  .warning-box {
+    background: rgba(242,92,84,0.06);
+    border: 1px solid rgba(242,92,84,0.2);
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-size: 12px;
+    color: var(--muted2);
+    margin-top: 12px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .warning-box .wi { color: var(--red); font-size: 15px; margin-top: 1px; }
+
+  .info-box {
+    background: var(--gold-dim);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-size: 12px;
+    color: var(--muted2);
+    margin-top: 12px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .info-box .wi { color: var(--gold); font-size: 15px; margin-top: 1px; }
+
+  /* CLAWBACK */
+  .clawback-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .clawback-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px;
+  }
+  .clawback-card .cc-title { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+  .clawback-card .cc-body { font-size: 12px; color: var(--muted2); line-height: 1.6; }
+  .clawback-card .cc-body strong { color: var(--text); }
+
+  /* FOOTER NOTE */
+  .footer-note {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-size: 11px;
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+    display: flex;
+    justify-content: space-between;
+  }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div>
+      <div class="logo">Opo · Internal</div>
+      <h1 style="margin-top:14px;">Conversion Agent<br><span>Commission Structure</span></h1>
+      <p class="subtitle">Based on analysis of 37,179 FTD records · Median FTD $151 · Mean $568</p>
+    </div>
+    <div class="header-meta">
+      <div>DOCUMENT TYPE</div>
+      <div style="color:var(--text);margin-top:2px;">COMPENSATION POLICY</div>
+      <div style="margin-top:10px;">STATUS</div>
+      <div style="color:var(--gold);margin-top:2px;">DRAFT v1.0</div>
+    </div>
+  </div>
+
+  <!-- SNAPSHOT STATS -->
+  <div class="stat-row">
+    <div class="stat-card">
+      <div class="stat-label">MINIMUM QUALIFYING FTD</div>
+      <div class="stat-val">$100</div>
+      <div class="stat-sub">72.1% of all FTDs qualify</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">COMMISSION TIERS</div>
+      <div class="stat-val">5 Tiers</div>
+      <div class="stat-sub">Fixed + % hybrid model</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">MINIMUM FTDs / MONTH</div>
+      <div class="stat-val">10 FTDs</div>
+      <div class="stat-sub">To unlock any commission</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">MAX MONTHLY BONUS</div>
+      <div class="stat-val">+35%</div>
+      <div class="stat-sub">Platinum multiplier on all commissions</div>
+    </div>
+  </div>
+
+  <!-- TIER TABLE -->
+  <div class="section">
+    <div class="section-label">01 — Commission Tiers</div>
+    <h2>Per-FTD Commission Schedule</h2>
+    <p class="section-desc">Applied per qualifying deposit at the time of the FTD. The tier is determined by the individual FTD amount — not the monthly total.</p>
+
+    <table class="tier-table">
+      <thead>
+        <tr>
+          <th>Tier</th>
+          <th>FTD Amount Range</th>
+          <th>Commission</th>
+          <th>Type</th>
+          <th style="min-width:140px;">% of FTDs in bracket</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="tier-badge">
+              <div class="tier-dot" style="background:var(--t1)"></div>
+              <span style="color:var(--t1)">Tier 1</span>
+            </div>
+          </td>
+          <td><span class="amount-range">$100 – $499</span></td>
+          <td>
+            <span class="commission-val" style="color:var(--t1)">$10</span>
+            <div class="commission-type">flat per FTD</div>
+          </td>
+          <td><span class="tag tag-fixed">FIXED</span></td>
+          <td class="bar-cell">
+            <div class="bar-wrap"><div class="bar-fill" style="width:72%;background:var(--t1)"></div></div>
+            <div class="bar-label">46.0% of all FTDs</div>
+          </td>
+          <td class="note-cell">Most common bucket. Covers median client. Fixed rate keeps it simple.</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="tier-badge">
+              <div class="tier-dot" style="background:var(--t2)"></div>
+              <span style="color:var(--t2)">Tier 2</span>
+            </div>
+          </td>
+          <td><span class="amount-range">$500 – $999</span></td>
+          <td>
+            <span class="commission-val" style="color:var(--t2)">$20</span>
+            <div class="commission-type">flat per FTD</div>
+          </td>
+          <td><span class="tag tag-fixed">FIXED</span></td>
+          <td class="bar-cell">
+            <div class="bar-wrap"><div class="bar-fill" style="width:50%;background:var(--t2)"></div></div>
+            <div class="bar-label">12.3% of all FTDs</div>
+          </td>
+          <td class="note-cell">Meaningful step-up. Agent earns 2× more for convincing a $500 vs $100 deposit.</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="tier-badge">
+              <div class="tier-dot" style="background:var(--t3)"></div>
+              <span style="color:var(--t3)">Tier 3</span>
+            </div>
+          </td>
+          <td><span class="amount-range">$1,000 – $4,999</span></td>
+          <td>
+            <span class="commission-val" style="color:var(--t3)">$30</span>
+            <div class="commission-type">flat per FTD</div>
+          </td>
+          <td><span class="tag tag-fixed">FIXED</span></td>
+          <td class="bar-cell">
+            <div class="bar-wrap"><div class="bar-fill" style="width:37%;background:var(--t3)"></div></div>
+            <div class="bar-label">11.9% of all FTDs</div>
+          </td>
+          <td class="note-cell">High-value client. Strong motivator to push for four-figure first deposits.</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="tier-badge">
+              <div class="tier-dot" style="background:var(--t4)"></div>
+              <span style="color:var(--t4)">Tier 4</span>
+            </div>
+          </td>
+          <td><span class="amount-range">$5,000 – $9,999</span></td>
+          <td>
+            <span class="commission-val" style="color:var(--t4)">$40</span>
+            <div class="commission-type">flat per FTD</div>
+          </td>
+          <td><span class="tag tag-fixed">FIXED</span></td>
+          <td class="bar-cell">
+            <div class="bar-wrap"><div class="bar-fill" style="width:12%;background:var(--t4)"></div></div>
+            <div class="bar-label">1.5% of all FTDs</div>
+          </td>
+          <td class="note-cell">Premium client. One such FTD is worth 4× a Tier 1. Caps broker exposure.</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="tier-badge">
+              <div class="tier-dot" style="background:var(--t5)"></div>
+              <span style="color:var(--t5)">Tier 5</span>
+            </div>
+          </td>
+          <td><span class="amount-range">$10,000+</span></td>
+          <td>
+            <span class="commission-val" style="color:var(--t5)">2%</span>
+            <div class="commission-type">of FTD amount · cap $1,000</div>
+          </td>
+          <td><span class="tag tag-pct">% OF FTD</span></td>
+          <td class="bar-cell">
+            <div class="bar-wrap"><div class="bar-fill" style="width:4%;background:var(--t5)"></div></div>
+            <div class="bar-label">0.5% of all FTDs</div>
+          </td>
+          <td class="note-cell">VIP / whale deposits. % model rewards going big. Hard cap protects P&L.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="info-box">
+      <div class="wi">★</div>
+      <div>FTDs below $100 are <strong>not eligible for commission</strong>. Micro-deposits (under $100) represent 27.9% of total FTD count but less than 2% of total deposited value — they signal low-intent clients and should not incentivize agent effort at the expense of quality.</div>
+    </div>
+  </div>
+
+  <!-- MONTHLY BONUS MULTIPLIERS -->
+  <div class="section">
+    <div class="section-label">02 — Monthly Performance Multipliers</div>
+    <h2>Volume Bonus Tiers</h2>
+    <p class="section-desc">At month-end, a multiplier is applied to all commissions earned that month based on the number of qualifying FTDs the agent brought in. This rewards consistent volume, not just individual wins.</p>
+
+    <div class="bonus-grid">
+      <div class="bonus-card bronze">
+        <div class="bonus-tier-name">Bronze</div>
+        <div class="bonus-req"><strong>10 – 19</strong> qualifying FTDs/month</div>
+        <div class="bonus-multiplier">×1.0</div>
+        <div class="bonus-mult-sub">base rate — no bonus</div>
+        <div class="bonus-divider"></div>
+        <div class="bonus-example">10 × Tier 1 = <span>$100</span></div>
+      </div>
+      <div class="bonus-card silver">
+        <div class="bonus-tier-name">Silver</div>
+        <div class="bonus-req"><strong>20 – 29</strong> qualifying FTDs/month</div>
+        <div class="bonus-multiplier">×1.10</div>
+        <div class="bonus-mult-sub">+10% on all commissions</div>
+        <div class="bonus-divider"></div>
+        <div class="bonus-example">20 × Tier 1 = <span>$220</span></div>
+      </div>
+      <div class="bonus-card gold-t">
+        <div class="bonus-tier-name">Gold</div>
+        <div class="bonus-req"><strong>30 – 39</strong> qualifying FTDs/month</div>
+        <div class="bonus-multiplier">×1.22</div>
+        <div class="bonus-mult-sub">+22% on all commissions</div>
+        <div class="bonus-divider"></div>
+        <div class="bonus-example">30 × Tier 1 = <span>$366</span></div>
+      </div>
+      <div class="bonus-card platinum">
+        <div class="bonus-tier-name">Platinum</div>
+        <div class="bonus-req"><strong>40+</strong> qualifying FTDs/month</div>
+        <div class="bonus-multiplier">×1.35</div>
+        <div class="bonus-mult-sub">+35% on all commissions</div>
+        <div class="bonus-divider"></div>
+        <div class="bonus-example">40 × Tier 1 = <span>$540</span></div>
+      </div>
+    </div>
+
+    <div class="info-box" style="margin-top:16px;">
+      <div class="wi">💡</div>
+      <div>The multiplier applies to <strong>all</strong> commissions that month — not just the ones above the threshold. This prevents agents from slowing down after hitting a milestone. An agent at 29 FTDs has a real incentive to push for one more to jump from ×1.10 to ×1.22 on the entire month.</div>
+    </div>
+  </div>
+
+  <!-- GATE RULES -->
+  <div class="section">
+    <div class="section-label">03 — Eligibility & Gate Rules</div>
+    <h2>Qualifying Conditions</h2>
+    <p class="section-desc">All conditions must be met for a deposit to count as a qualifying FTD and for the agent to be eligible for commission that month.</p>
+
+    <div class="rules-grid">
+      <div class="rule-card">
+        <div class="rule-icon">🏁</div>
+        <div>
+          <div class="rule-title">Minimum FTD Amount</div>
+          <div class="rule-body">The deposit must be <strong>≥ $100 USD</strong> to qualify. Deposits below this threshold are recorded but do not count toward commission or the monthly FTD count for volume bonus purposes.</div>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-icon">🔢</div>
+        <div>
+          <div class="rule-title">Minimum 10 FTDs / Month</div>
+          <div class="rule-body">An agent must bring in <strong>at least 10 qualifying FTDs</strong> in a calendar month to earn any commission for that month. Below this threshold, zero commission is paid — regardless of FTD size.</div>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-icon">🔗</div>
+        <div>
+          <div class="rule-title">Client Must Be Assigned to Agent</div>
+          <div class="rule-body">The depositing client must be <strong>registered under the agent's CRM account</strong> at the time of the FTD. Retroactive reassignments are not accepted. Disputed ownership defaults to first-touch attribution.</div>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-icon">✅</div>
+        <div>
+          <div class="rule-title">KYC & Compliance Cleared</div>
+          <div class="rule-body">The client must be <strong>fully KYC-verified</strong> before commission is paid. FTDs made by unverified accounts are held in pending status and only credited once KYC is approved and no red flags exist.</div>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-icon">⏱️</div>
+        <div>
+          <div class="rule-title">True First-Time Deposit</div>
+          <div class="rule-body">Commission is paid on the <strong>first deposit only</strong>. Repeat deposits, re-deposits after withdrawal, or duplicate accounts from the same client do not qualify. Duplicate detection runs on email, phone, and device fingerprint.</div>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-icon">💳</div>
+        <div>
+          <div class="rule-title">Payment Source Validity</div>
+          <div class="rule-body">The deposit must be made from a <strong>payment method matching the client's verified identity</strong>. Third-party payments, crypto-to-fiat conversions under review, or chargebacks void the associated commission.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLAWBACK -->
+  <div class="section">
+    <div class="section-label">04 — Clawback & Adjustments</div>
+    <h2>Commission Recovery Policy</h2>
+    <p class="section-desc">Commission may be reversed or adjusted under the following conditions. These protect the company from abuse and incentivize agents to bring in quality clients, not just first deposits.</p>
+    <div class="clawback-row">
+      <div class="clawback-card">
+        <div class="cc-title">⚠️ Withdrawal Within 30 Days</div>
+        <div class="cc-body">If a client <strong>withdraws their full deposit</strong> within 30 calendar days of the FTD with zero trades placed, <strong>100% of the commission</strong> is clawed back in the following month's payout.</div>
+      </div>
+      <div class="clawback-card">
+        <div class="cc-title">🚫 Fraudulent / Related Parties</div>
+        <div class="cc-body">If a deposit is linked to <strong>fraud, money laundering, or a related party</strong> of the agent (family, friends used to inflate FTD count), the full commission plus a <strong>disciplinary deduction</strong> applies.</div>
+      </div>
+      <div class="clawback-card">
+        <div class="cc-title">📅 Payout Window</div>
+        <div class="cc-body">Commissions for month <em>M</em> are reviewed during the first 5 business days of month <em>M+1</em> and paid by the <strong>10th of M+1</strong>, after clawback review. No advance payments.</div>
+      </div>
+    </div>
+
+    <div class="warning-box">
+      <div class="wi">⚡</div>
+      <div>The clawback window and withdrawal-without-trade rule are the most critical protections here. Without them, agents are incentivized to onboard anyone — including their own contacts depositing and withdrawing immediately. Consider tracking <strong>deposits with ≥1 trade placed</strong> as the gold standard quality metric over time.</div>
+    </div>
+  </div>
+
+  <!-- LIVE CALCULATOR -->
+  <div class="section">
+    <div class="section-label">05 — Live Commission Calculator</div>
+    <h2>Monthly Earnings Estimator</h2>
+    <p class="section-desc">Estimate an agent's total monthly commission based on their FTD count and average deposit size.</p>
+
+    <div class="calc-card">
+      <div class="calc-grid">
+        <div>
+          <div class="calc-label">FTDs PER TIER (this month)</div>
+          <div id="tierInputs" style="margin-top:10px;"></div>
+
+          <div style="margin-top:18px;padding:14px;background:var(--surface2);border-radius:8px;">
+            <div class="calc-label" style="margin-bottom:8px;">TIER 5 DEPOSIT AMOUNTS</div>
+            <div style="font-size:11px;color:var(--muted);margin-bottom:10px;line-height:1.5;">
+              Enter actual $ amounts of any Tier 5 deposits, separated by commas (e.g. 12000, 25000, 80000). Commission = 2% of each, capped at $1,000 per FTD.
+            </div>
+            <input type="text" class="calc-input" id="t5Amounts" placeholder="e.g. 15000, 30000" style="padding-left:14px;font-size:13px;">
+          </div>
+        </div>
+
+        <div>
+          <div class="calc-results">
+            <div id="calcDetails"></div>
+            <div class="calc-total">
+              <div>
+                <div class="calc-total-label">Total Monthly Commission</div>
+                <div><span id="calcTierBadge" class="calc-tier-badge"></span></div>
+              </div>
+              <div class="calc-total-val" id="calcTotal">$0</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VOLUME BONUS COMPARISON -->
+  <div class="section">
+    <div class="section-label">06 — Volume Bonus Comparison</div>
+    <h2>Side-by-Side Tier Comparison</h2>
+    <p class="section-desc">Enter a base commission amount (before any multiplier) to see exactly how much an agent earns at each volume tier. Useful for showing agents what climbing one tier higher is worth in real money.</p>
+
+    <div class="calc-card">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px;align-items:end;">
+        <div>
+          <div class="calc-label">BASE COMMISSION (before multiplier)</div>
+          <div class="calc-input-wrap">
+            <span class="calc-prefix">$</span>
+            <input type="number" class="calc-input" id="vbBase" value="500" min="0" max="100000" step="50">
+          </div>
+        </div>
+        <div>
+          <div class="calc-label">QUICK PRESETS</div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap;">
+            <button class="vb-preset" data-val="200" style="flex:1;background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:10px 8px;border-radius:6px;cursor:pointer;font-family:'DM Mono',monospace;font-size:11px;">$200</button>
+            <button class="vb-preset" data-val="500" style="flex:1;background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:10px 8px;border-radius:6px;cursor:pointer;font-family:'DM Mono',monospace;font-size:11px;">$500</button>
+            <button class="vb-preset" data-val="1000" style="flex:1;background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:10px 8px;border-radius:6px;cursor:pointer;font-family:'DM Mono',monospace;font-size:11px;">$1K</button>
+            <button class="vb-preset" data-val="2000" style="flex:1;background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:10px 8px;border-radius:6px;cursor:pointer;font-family:'DM Mono',monospace;font-size:11px;">$2K</button>
+            <button class="vb-preset" data-val="5000" style="flex:1;background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:10px 8px;border-radius:6px;cursor:pointer;font-family:'DM Mono',monospace;font-size:11px;">$5K</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="vbResults" style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px;"></div>
+
+      <div class="info-box" style="margin-top:20px;">
+        <div class="wi">📈</div>
+        <div id="vbInsight">Enter a base commission to see the breakdown.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer-note">
+    <div>OPO INTERNAL — BACK OFFICE · COMPENSATION POLICY DRAFT</div>
+    <div>BASED ON 37,179 FTD RECORDS · ANALYSIS BY BACK OFFICE TEAM</div>
+  </div>
+
+</div>
+
+<script>
+  const TIERS = [
+    { id: 't1', label: 'Tier 1', range: '$100 – $499',  color: '#4e7cff', commission: 10, defaultCount: 9 },
+    { id: 't2', label: 'Tier 2', range: '$500 – $999',  color: '#3ecf8e', commission: 20, defaultCount: 4 },
+    { id: 't3', label: 'Tier 3', range: '$1K – $4.9K',  color: '#c9a84c', commission: 30, defaultCount: 2 },
+    { id: 't4', label: 'Tier 4', range: '$5K – $9.9K',  color: '#f5813e', commission: 40, defaultCount: 1 },
+  ];
+
+  const VOLUME_TIERS = [
+    { name: 'Below Minimum', min: 0,  max: 9,  multi: 0,    color: '#f25c54', bg: 'rgba(242,92,84,0.15)' },
+    { name: 'Bronze',        min: 10, max: 19, multi: 1.0,  color: '#cd7f32', bg: 'rgba(205,127,50,0.15)' },
+    { name: 'Silver',        min: 20, max: 29, multi: 1.10, color: '#a8b2c8', bg: 'rgba(168,178,200,0.15)' },
+    { name: 'Gold',          min: 30, max: 39, multi: 1.22, color: '#c9a84c', bg: 'rgba(201,168,76,0.15)' },
+    { name: 'Platinum',      min: 40, max: 9999, multi: 1.35, color: '#e2f0ff', bg: 'rgba(226,240,255,0.15)' },
+  ];
+
+  const T5_RATE = 0.02;
+  const T5_CAP = 1000;
+
+  // Build tier inputs
+  const tierInputs = document.getElementById('tierInputs');
+  TIERS.forEach(t => {
+    const row = document.createElement('div');
+    row.style.cssText = 'display:flex;align-items:center;gap:12px;margin-bottom:10px;';
+    row.innerHTML = `
+      <div style="flex:1;">
+        <div style="font-size:12px;color:${t.color};font-family:'Syne',sans-serif;font-weight:700;">${t.label}</div>
+        <div style="font-size:10px;color:var(--muted);font-family:'DM Mono',monospace;">${t.range} · $${t.commission}/FTD</div>
+      </div>
+      <input type="number" class="calc-input" id="${t.id}_count" value="${t.defaultCount}" min="0" max="999"
+        style="width:90px;padding:8px 10px;text-align:center;font-size:14px;">
+    `;
+    tierInputs.appendChild(row);
+  });
+
+  function getMultiplier(n) {
+    for (const vt of VOLUME_TIERS) {
+      if (n >= vt.min && n <= vt.max) return vt;
+    }
+    return VOLUME_TIERS[0];
+  }
+
+  function parseT5Amounts(str) {
+    if (!str || !str.trim()) return [];
+    return str.split(/[,\s]+/)
+      .map(s => parseFloat(s.replace(/[^\d.]/g, '')))
+      .filter(n => !isNaN(n) && n >= 10000);
+  }
+
+  function recalc() {
+    let rows = '';
+    let baseTotal = 0;
+    let totalCount = 0;
+
+    // Tiers 1-4
+    TIERS.forEach(t => {
+      const cnt = Math.max(0, parseInt(document.getElementById(t.id + '_count').value) || 0);
+      totalCount += cnt;
+      const comm = t.commission * cnt;
+      baseTotal += comm;
+      if (cnt > 0) {
+        rows += `
+          <div class="calc-result-row">
+            <span class="r-label" style="color:${t.color}">${t.label} — ${cnt} × $${t.commission}</span>
+            <span class="r-val" style="color:${t.color}">$${comm.toLocaleString()}</span>
+          </div>`;
+      }
+    });
+
+    // Tier 5
+    const t5Amounts = parseT5Amounts(document.getElementById('t5Amounts').value);
+    let t5Total = 0;
+    t5Amounts.forEach(amt => {
+      const c = Math.min(amt * T5_RATE, T5_CAP);
+      t5Total += c;
+    });
+    totalCount += t5Amounts.length;
+    baseTotal += t5Total;
+    if (t5Amounts.length > 0) {
+      rows += `
+        <div class="calc-result-row">
+          <span class="r-label" style="color:#e05cda">Tier 5 — ${t5Amounts.length} FTD${t5Amounts.length>1?'s':''} (2% of $${t5Amounts.reduce((a,b)=>a+b,0).toLocaleString()})</span>
+          <span class="r-val" style="color:#e05cda">$${Math.round(t5Total).toLocaleString()}</span>
+        </div>`;
+    }
+
+    // Summary rows
+    rows += `<div class="calc-result-row" style="margin-top:6px;"><span class="r-label">Total Qualifying FTDs</span><span class="r-val">${totalCount}</span></div>`;
+    rows += `<div class="calc-result-row"><span class="r-label">Base Commission</span><span class="r-val">$${Math.round(baseTotal).toLocaleString()}</span></div>`;
+
+    const vtier = getMultiplier(totalCount);
+    let total;
+    if (totalCount < 10) {
+      total = 0;
+      rows += `<div class="calc-result-row"><span class="r-label" style="color:var(--red)">Below 10-FTD minimum — no commission</span><span class="r-val" style="color:var(--red)">−$${Math.round(baseTotal).toLocaleString()}</span></div>`;
+    } else {
+      total = Math.round(baseTotal * vtier.multi);
+      const bonusAmt = total - Math.round(baseTotal);
+      if (vtier.multi > 1) {
+        rows += `<div class="calc-result-row"><span class="r-label" style="color:${vtier.color}">${vtier.name} Multiplier (×${vtier.multi})</span><span class="r-val" style="color:${vtier.color}">+$${bonusAmt.toLocaleString()}</span></div>`;
+      }
+    }
+
+    document.getElementById('calcDetails').innerHTML = rows;
+    document.getElementById('calcTotal').textContent = '$' + total.toLocaleString();
+
+    const badge = document.getElementById('calcTierBadge');
+    badge.textContent = vtier.name + (totalCount < 10 ? ' — No Commission' : ` · ×${vtier.multi}`);
+    badge.style.color = vtier.color;
+    badge.style.background = vtier.bg;
+    badge.style.borderColor = vtier.color + '44';
+  }
+
+  // Listeners
+  TIERS.forEach(t => {
+    document.getElementById(t.id + '_count').addEventListener('input', recalc);
+  });
+  document.getElementById('t5Amounts').addEventListener('input', recalc);
+
+  recalc();
+
+  // ============================================
+  // VOLUME BONUS COMPARISON CALCULATOR
+  // ============================================
+  function recalcVB() {
+    const base = parseFloat(document.getElementById('vbBase').value) || 0;
+    const container = document.getElementById('vbResults');
+    container.innerHTML = '';
+
+    const cards = [
+      { name: 'Below Min',  ftds: '0–9',   multi: 0,    color: '#f25c54', bg: 'rgba(242,92,84,0.06)',   border: 'rgba(242,92,84,0.25)' },
+      { name: 'Bronze',     ftds: '10–19', multi: 1.0,  color: '#cd7f32', bg: 'rgba(205,127,50,0.06)',  border: 'rgba(205,127,50,0.3)' },
+      { name: 'Silver',     ftds: '20–29', multi: 1.10, color: '#a8b2c8', bg: 'rgba(168,178,200,0.06)', border: 'rgba(168,178,200,0.3)' },
+      { name: 'Gold',       ftds: '30–39', multi: 1.22, color: '#c9a84c', bg: 'rgba(201,168,76,0.08)',  border: 'rgba(201,168,76,0.35)' },
+      { name: 'Platinum',   ftds: '40+',   multi: 1.35, color: '#e2f0ff', bg: 'rgba(226,240,255,0.06)', border: 'rgba(226,240,255,0.25)' },
+    ];
+
+    cards.forEach(c => {
+      const payout = c.multi === 0 ? 0 : Math.round(base * c.multi);
+      const bonus = payout - base;
+      const card = document.createElement('div');
+      card.style.cssText = `
+        background: ${c.bg};
+        border: 1px solid ${c.border};
+        border-radius: 10px;
+        padding: 18px 14px;
+        text-align: center;
+      `;
+      card.innerHTML = `
+        <div style="font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:${c.color};">${c.name}</div>
+        <div style="font-size:10px;color:var(--muted);font-family:'DM Mono',monospace;margin-top:2px;">${c.ftds} FTDs</div>
+        <div style="font-size:11px;color:${c.color};font-family:'DM Mono',monospace;margin-top:8px;">×${c.multi.toFixed(2)}</div>
+        <div style="font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:${c.color};margin-top:10px;line-height:1;">
+          $${payout.toLocaleString()}
+        </div>
+        <div style="font-size:11px;color:var(--muted);margin-top:6px;font-family:'DM Mono',monospace;">
+          ${c.multi === 0 ? 'no commission' : (bonus > 0 ? '+$' + bonus.toLocaleString() + ' bonus' : 'base only')}
+        </div>
+      `;
+      container.appendChild(card);
+    });
+
+    // Insight text
+    const silver = Math.round(base * 1.10);
+    const gold = Math.round(base * 1.22);
+    const platinum = Math.round(base * 1.35);
+    const bronzeToPlat = platinum - base;
+    const silverToGold = gold - silver;
+    document.getElementById('vbInsight').innerHTML = `
+      With a base of <strong>$${base.toLocaleString()}</strong>, climbing from Bronze to Platinum is worth an extra
+      <strong style="color:var(--gold2)">$${bronzeToPlat.toLocaleString()}</strong> for the same commission base.
+      The single jump from Silver to Gold alone adds <strong style="color:var(--gold2)">$${silverToGold.toLocaleString()}</strong> —
+      that's the value of pushing from 29 to 30 FTDs in a month.
+    `;
+  }
+
+  document.getElementById('vbBase').addEventListener('input', recalcVB);
+  document.querySelectorAll('.vb-preset').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.getElementById('vbBase').value = btn.dataset.val;
+      recalcVB();
+    });
+  });
+  recalcVB();
+</script>
+</body>
+</html>
