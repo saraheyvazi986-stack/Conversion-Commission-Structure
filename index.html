@@ -485,9 +485,9 @@
       <div class="stat-sub">To unlock any commission</div>
     </div>
     <div class="stat-card">
-      <div class="stat-label">MAX MONTHLY BONUS</div>
-      <div class="stat-val">+35%</div>
-      <div class="stat-sub">Platinum multiplier on all commissions</div>
+      <div class="stat-label">MAX MONTHLY COMMISSION</div>
+      <div class="stat-val">$1,000</div>
+      <div class="stat-sub">Hard cap per agent (incl. bonus)</div>
     </div>
   </div>
 
@@ -575,7 +575,7 @@
           </td>
           <td><span class="amount-range">$5,000 – $9,999</span></td>
           <td>
-            <span class="commission-val" style="color:var(--t4)">$40</span>
+            <span class="commission-val" style="color:var(--t4)">$60</span>
             <div class="commission-type">flat per FTD</div>
           </td>
           <td><span class="tag tag-fixed">FIXED</span></td>
@@ -583,7 +583,7 @@
             <div class="bar-wrap"><div class="bar-fill" style="width:12%;background:var(--t4)"></div></div>
             <div class="bar-label">1.5% of all FTDs</div>
           </td>
-          <td class="note-cell">Premium client. One such FTD is worth 4× a Tier 1. Caps broker exposure.</td>
+          <td class="note-cell">Premium client. One such FTD is worth 6× a Tier 1. Caps broker exposure.</td>
         </tr>
         <tr>
           <td>
@@ -615,54 +615,159 @@
 
   <!-- MONTHLY BONUS MULTIPLIERS -->
   <div class="section">
-    <div class="section-label">02 — Monthly Performance Multipliers</div>
+    <div class="section-label">02 — Monthly Performance Bonuses</div>
     <h2>Volume Bonus Tiers</h2>
-    <p class="section-desc">At month-end, a multiplier is applied to all commissions earned that month based on the number of qualifying FTDs the agent brought in. This rewards consistent volume, not just individual wins.</p>
+    <p class="section-desc">At month-end, the agent receives a flat bonus based on the number of qualifying FTDs (each ≥ $100) brought in during the month. Bonus is paid in addition to per-FTD commissions, subject to the overall $1,000 monthly cap.</p>
 
     <div class="bonus-grid">
       <div class="bonus-card bronze">
         <div class="bonus-tier-name">Bronze</div>
-        <div class="bonus-req"><strong>10 – 19</strong> qualifying FTDs/month</div>
-        <div class="bonus-multiplier">×1.0</div>
-        <div class="bonus-mult-sub">base rate — no bonus</div>
+        <div class="bonus-req"><strong>20</strong> qualifying FTDs/month</div>
+        <div class="bonus-multiplier">+$50</div>
+        <div class="bonus-mult-sub">flat bonus</div>
         <div class="bonus-divider"></div>
-        <div class="bonus-example">10 × Tier 1 = <span>$100</span></div>
+        <div class="bonus-example">unlocks the bonus track</div>
       </div>
       <div class="bonus-card silver">
         <div class="bonus-tier-name">Silver</div>
-        <div class="bonus-req"><strong>20 – 29</strong> qualifying FTDs/month</div>
-        <div class="bonus-multiplier">×1.10</div>
-        <div class="bonus-mult-sub">+10% on all commissions</div>
+        <div class="bonus-req"><strong>50</strong> qualifying FTDs/month</div>
+        <div class="bonus-multiplier">+$100</div>
+        <div class="bonus-mult-sub">flat bonus</div>
         <div class="bonus-divider"></div>
-        <div class="bonus-example">20 × Tier 1 = <span>$220</span></div>
+        <div class="bonus-example">2× Bronze · solid month</div>
       </div>
       <div class="bonus-card gold-t">
         <div class="bonus-tier-name">Gold</div>
-        <div class="bonus-req"><strong>30 – 39</strong> qualifying FTDs/month</div>
-        <div class="bonus-multiplier">×1.22</div>
-        <div class="bonus-mult-sub">+22% on all commissions</div>
+        <div class="bonus-req"><strong>100</strong> qualifying FTDs/month</div>
+        <div class="bonus-multiplier">+$200</div>
+        <div class="bonus-mult-sub">flat bonus</div>
         <div class="bonus-divider"></div>
-        <div class="bonus-example">30 × Tier 1 = <span>$366</span></div>
+        <div class="bonus-example">4× Bronze · top performer</div>
       </div>
       <div class="bonus-card platinum">
         <div class="bonus-tier-name">Platinum</div>
-        <div class="bonus-req"><strong>40+</strong> qualifying FTDs/month</div>
-        <div class="bonus-multiplier">×1.35</div>
-        <div class="bonus-mult-sub">+35% on all commissions</div>
+        <div class="bonus-req"><strong>200+</strong> qualifying FTDs/month</div>
+        <div class="bonus-multiplier">+$500</div>
+        <div class="bonus-mult-sub">flat bonus</div>
         <div class="bonus-divider"></div>
-        <div class="bonus-example">40 × Tier 1 = <span>$540</span></div>
+        <div class="bonus-example">10× Bronze · exceptional</div>
       </div>
     </div>
 
     <div class="info-box" style="margin-top:16px;">
       <div class="wi">💡</div>
-      <div>The multiplier applies to <strong>all</strong> commissions that month — not just the ones above the threshold. This prevents agents from slowing down after hitting a milestone. An agent at 29 FTDs has a real incentive to push for one more to jump from ×1.10 to ×1.22 on the entire month.</div>
+      <div>The bonus is <strong>not cumulative</strong> — an agent who hits 100 FTDs receives the $200 Gold bonus only (not $50+$100+$200). Each milestone replaces the previous one. The agent's total monthly commission (per-FTD commissions + bonus) is capped at <strong>$1,000 USD</strong>.</div>
+    </div>
+  </div>
+
+  <!-- COMPENSATION FRAMEWORK -->
+  <div class="section">
+    <div class="section-label">03 — Compensation Framework</div>
+    <h2>Base Salaries & Total Package</h2>
+    <p class="section-desc">Conversion agents and their manager are compensated through a two-component structure: a fixed monthly base salary in IRR, plus a variable commission/bonus component in USD. The manager additionally earns a percentage of the team's total commission pool.</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px;">
+      <!-- Agent Compensation -->
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold);"></div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+          <div style="font-family:'Syne',sans-serif;font-size:11px;letter-spacing:0.18em;color:var(--gold);">CONVERSION AGENT</div>
+        </div>
+        <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:700;margin-bottom:18px;">Total Monthly Package</div>
+
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--border);">
+          <div>
+            <div style="font-size:12px;color:var(--muted2);">Base Salary</div>
+            <div style="font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;margin-top:2px;">paid in local currency</div>
+          </div>
+          <div style="text-align:right;">
+            <div style="font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--text);">30,000,000</div>
+            <div style="font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;">IRR / month</div>
+          </div>
+        </div>
+
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--border);">
+          <div>
+            <div style="font-size:12px;color:var(--muted2);">Per-FTD Commission</div>
+            <div style="font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;margin-top:2px;">tiered, see Section 01</div>
+          </div>
+          <div style="text-align:right;">
+            <div style="font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--gold2);">variable</div>
+            <div style="font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;">USD</div>
+          </div>
+        </div>
+
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--border);">
+          <div>
+            <div style="font-size:12px;color:var(--muted2);">Volume Bonus</div>
+            <div style="font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;margin-top:2px;">flat, milestone-based</div>
+          </div>
+          <div style="text-align:right;">
+            <div style="font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--gold2);">+$50 → +$500</div>
+            <div style="font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;">USD</div>
+          </div>
+        </div>
+
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 0 0;margin-top:6px;">
+          <div>
+            <div style="font-size:12px;color:var(--red);">Commission Cap</div>
+            <div style="font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;margin-top:2px;">commission + bonus combined</div>
+          </div>
+          <div style="text-align:right;">
+            <div style="font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:var(--red);">$1,000</div>
+            <div style="font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;">USD / month max</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Manager Compensation -->
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg, #c9a84c, #e8c97a);"></div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+          <div style="font-family:'Syne',sans-serif;font-size:11px;letter-spacing:0.18em;color:var(--gold);">CONVERSION MANAGER</div>
+        </div>
+        <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:700;margin-bottom:18px;">Total Monthly Package</div>
+
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--border);">
+          <div>
+            <div style="font-size:12px;color:var(--muted2);">Base Salary</div>
+            <div style="font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;margin-top:2px;">paid in local currency</div>
+          </div>
+          <div style="text-align:right;">
+            <div style="font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--text);">50,000,000</div>
+            <div style="font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;">IRR / month</div>
+          </div>
+        </div>
+
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--border);">
+          <div>
+            <div style="font-size:12px;color:var(--muted2);">Override Commission</div>
+            <div style="font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;margin-top:2px;">% of team's total commission pool</div>
+          </div>
+          <div style="text-align:right;">
+            <div style="font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--gold2);">20%</div>
+            <div style="font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;">of agent commissions</div>
+          </div>
+        </div>
+
+        <div style="background:var(--surface2);border-radius:8px;padding:14px;margin-top:14px;">
+          <div style="font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;letter-spacing:0.08em;margin-bottom:8px;">EXAMPLE</div>
+          <div style="font-size:12px;color:var(--muted2);line-height:1.6;">
+            If 4 agents earn a combined <strong style="color:var(--text)">$3,200</strong> in commissions for the month, the manager's override is <strong style="color:var(--gold2)">$640</strong> (20%), on top of the 50M IRR base.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-box" style="margin-top:14px;">
+      <div class="wi">★</div>
+      <div>The manager's 20% override is calculated on the <strong>net commission pool actually paid</strong> to agents — i.e. after caps, clawbacks, and KYC adjustments. This aligns the manager's incentives with sustainable agent performance, not just gross numbers.</div>
     </div>
   </div>
 
   <!-- GATE RULES -->
   <div class="section">
-    <div class="section-label">03 — Eligibility & Gate Rules</div>
+    <div class="section-label">04 — Eligibility & Gate Rules</div>
     <h2>Qualifying Conditions</h2>
     <p class="section-desc">All conditions must be met for a deposit to count as a qualifying FTD and for the agent to be eligible for commission that month.</p>
 
@@ -679,6 +784,13 @@
         <div>
           <div class="rule-title">Minimum 10 FTDs / Month</div>
           <div class="rule-body">An agent must bring in <strong>at least 10 qualifying FTDs</strong> in a calendar month to earn any commission for that month. Below this threshold, zero commission is paid — regardless of FTD size.</div>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-icon">🧱</div>
+        <div>
+          <div class="rule-title">Hard Commission Cap</div>
+          <div class="rule-body">An agent's total monthly commission (per-FTD commissions + volume bonus, combined) is capped at <strong>$1,000 USD</strong>. Earnings beyond this threshold are not paid out and do not roll over to the following month.</div>
         </div>
       </div>
       <div class="rule-card">
@@ -714,7 +826,7 @@
 
   <!-- CLAWBACK -->
   <div class="section">
-    <div class="section-label">04 — Clawback & Adjustments</div>
+    <div class="section-label">05 — Clawback & Adjustments</div>
     <h2>Commission Recovery Policy</h2>
     <p class="section-desc">Commission may be reversed or adjusted under the following conditions. These protect the company from abuse and incentivize agents to bring in quality clients, not just first deposits.</p>
     <div class="clawback-row">
@@ -740,7 +852,7 @@
 
   <!-- LIVE CALCULATOR -->
   <div class="section">
-    <div class="section-label">05 — Live Commission Calculator</div>
+    <div class="section-label">06 — Live Commission Calculator</div>
     <h2>Monthly Earnings Estimator</h2>
     <p class="section-desc">Estimate an agent's total monthly commission based on their FTD count and average deposit size.</p>
 
@@ -777,14 +889,14 @@
 
   <!-- VOLUME BONUS COMPARISON -->
   <div class="section">
-    <div class="section-label">06 — Volume Bonus Comparison</div>
-    <h2>Side-by-Side Tier Comparison</h2>
-    <p class="section-desc">Enter a base commission amount (before any multiplier) to see exactly how much an agent earns at each volume tier. Useful for showing agents what climbing one tier higher is worth in real money.</p>
+    <div class="section-label">07 — Volume Bonus Comparison</div>
+    <h2>Side-by-Side Bonus Comparison</h2>
+    <p class="section-desc">Enter a base per-FTD commission amount to see how the flat bonus structure adds to it at each volume tier — and where the $1,000 cap kicks in. Useful for showing agents what climbing one tier higher is worth.</p>
 
     <div class="calc-card">
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px;align-items:end;">
         <div>
-          <div class="calc-label">BASE COMMISSION (before multiplier)</div>
+          <div class="calc-label">BASE COMMISSION (per-FTD only, before bonus)</div>
           <div class="calc-input-wrap">
             <span class="calc-prefix">$</span>
             <input type="number" class="calc-input" id="vbBase" value="500" min="0" max="100000" step="50">
@@ -795,9 +907,9 @@
           <div style="display:flex;gap:6px;flex-wrap:wrap;">
             <button class="vb-preset" data-val="200" style="flex:1;background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:10px 8px;border-radius:6px;cursor:pointer;font-family:'DM Mono',monospace;font-size:11px;">$200</button>
             <button class="vb-preset" data-val="500" style="flex:1;background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:10px 8px;border-radius:6px;cursor:pointer;font-family:'DM Mono',monospace;font-size:11px;">$500</button>
+            <button class="vb-preset" data-val="800" style="flex:1;background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:10px 8px;border-radius:6px;cursor:pointer;font-family:'DM Mono',monospace;font-size:11px;">$800</button>
             <button class="vb-preset" data-val="1000" style="flex:1;background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:10px 8px;border-radius:6px;cursor:pointer;font-family:'DM Mono',monospace;font-size:11px;">$1K</button>
-            <button class="vb-preset" data-val="2000" style="flex:1;background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:10px 8px;border-radius:6px;cursor:pointer;font-family:'DM Mono',monospace;font-size:11px;">$2K</button>
-            <button class="vb-preset" data-val="5000" style="flex:1;background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:10px 8px;border-radius:6px;cursor:pointer;font-family:'DM Mono',monospace;font-size:11px;">$5K</button>
+            <button class="vb-preset" data-val="1500" style="flex:1;background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:10px 8px;border-radius:6px;cursor:pointer;font-family:'DM Mono',monospace;font-size:11px;">$1.5K</button>
           </div>
         </div>
       </div>
@@ -807,6 +919,39 @@
       <div class="info-box" style="margin-top:20px;">
         <div class="wi">📈</div>
         <div id="vbInsight">Enter a base commission to see the breakdown.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MANAGER COMPENSATION CALCULATOR -->
+  <div class="section">
+    <div class="section-label">08 — Manager Compensation Calculator</div>
+    <h2>Team Payout Estimator</h2>
+    <p class="section-desc">Enter each agent's monthly net commission (after caps) to calculate the manager's 20% override and the total team compensation cost.</p>
+
+    <div class="calc-card">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;">
+        <div>
+          <div class="calc-label">AGENT COMMISSIONS THIS MONTH (net, capped at $1,000)</div>
+          <div id="agentCommissionInputs" style="margin-top:10px;"></div>
+          <div style="display:flex;gap:8px;margin-top:8px;">
+            <button id="addAgent" style="flex:1;background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:10px;border-radius:6px;cursor:pointer;font-family:'DM Mono',monospace;font-size:11px;">+ ADD AGENT</button>
+            <button id="removeAgent" style="flex:1;background:var(--surface2);border:1px solid var(--border);color:var(--muted2);padding:10px;border-radius:6px;cursor:pointer;font-family:'DM Mono',monospace;font-size:11px;">− REMOVE</button>
+          </div>
+        </div>
+
+        <div>
+          <div class="calc-results">
+            <div id="mgrDetails"></div>
+            <div class="calc-total">
+              <div>
+                <div class="calc-total-label">Manager Total (USD portion)</div>
+                <div style="font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;margin-top:4px;">+ 50,000,000 IRR base salary</div>
+              </div>
+              <div class="calc-total-val" id="mgrTotal">$0</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -824,16 +969,19 @@
     { id: 't1', label: 'Tier 1', range: '$100 – $499',  color: '#4e7cff', commission: 10, defaultCount: 9 },
     { id: 't2', label: 'Tier 2', range: '$500 – $999',  color: '#3ecf8e', commission: 20, defaultCount: 4 },
     { id: 't3', label: 'Tier 3', range: '$1K – $4.9K',  color: '#c9a84c', commission: 30, defaultCount: 2 },
-    { id: 't4', label: 'Tier 4', range: '$5K – $9.9K',  color: '#f5813e', commission: 40, defaultCount: 1 },
+    { id: 't4', label: 'Tier 4', range: '$5K – $9.9K',  color: '#f5813e', commission: 60, defaultCount: 1 },
   ];
 
   const VOLUME_TIERS = [
-    { name: 'Below Minimum', min: 0,  max: 9,  multi: 0,    color: '#f25c54', bg: 'rgba(242,92,84,0.15)' },
-    { name: 'Bronze',        min: 10, max: 19, multi: 1.0,  color: '#cd7f32', bg: 'rgba(205,127,50,0.15)' },
-    { name: 'Silver',        min: 20, max: 29, multi: 1.10, color: '#a8b2c8', bg: 'rgba(168,178,200,0.15)' },
-    { name: 'Gold',          min: 30, max: 39, multi: 1.22, color: '#c9a84c', bg: 'rgba(201,168,76,0.15)' },
-    { name: 'Platinum',      min: 40, max: 9999, multi: 1.35, color: '#e2f0ff', bg: 'rgba(226,240,255,0.15)' },
+    { name: 'Below Minimum', min: 0,   max: 9,   bonus: 0,    color: '#f25c54', bg: 'rgba(242,92,84,0.15)' },
+    { name: 'No Bonus',      min: 10,  max: 19,  bonus: 0,    color: '#8b93b8', bg: 'rgba(139,147,184,0.15)' },
+    { name: 'Bronze',        min: 20,  max: 49,  bonus: 50,   color: '#cd7f32', bg: 'rgba(205,127,50,0.15)' },
+    { name: 'Silver',        min: 50,  max: 99,  bonus: 100,  color: '#a8b2c8', bg: 'rgba(168,178,200,0.15)' },
+    { name: 'Gold',          min: 100, max: 199, bonus: 200,  color: '#c9a84c', bg: 'rgba(201,168,76,0.15)' },
+    { name: 'Platinum',      min: 200, max: 9999, bonus: 500, color: '#e2f0ff', bg: 'rgba(226,240,255,0.15)' },
   ];
+
+  const COMMISSION_CAP = 1000;
 
   const T5_RATE = 0.02;
   const T5_CAP = 1000;
@@ -911,14 +1059,25 @@
 
     const vtier = getMultiplier(totalCount);
     let total;
+    let totalBeforeCap = baseTotal + (totalCount >= 10 ? vtier.bonus : 0);
+
     if (totalCount < 10) {
       total = 0;
       rows += `<div class="calc-result-row"><span class="r-label" style="color:var(--red)">Below 10-FTD minimum — no commission</span><span class="r-val" style="color:var(--red)">−$${Math.round(baseTotal).toLocaleString()}</span></div>`;
     } else {
-      total = Math.round(baseTotal * vtier.multi);
-      const bonusAmt = total - Math.round(baseTotal);
-      if (vtier.multi > 1) {
-        rows += `<div class="calc-result-row"><span class="r-label" style="color:${vtier.color}">${vtier.name} Multiplier (×${vtier.multi})</span><span class="r-val" style="color:${vtier.color}">+$${bonusAmt.toLocaleString()}</span></div>`;
+      // Show bonus row if applicable
+      if (vtier.bonus > 0) {
+        rows += `<div class="calc-result-row"><span class="r-label" style="color:${vtier.color}">${vtier.name} Bonus (${totalCount} FTDs)</span><span class="r-val" style="color:${vtier.color}">+$${vtier.bonus.toLocaleString()}</span></div>`;
+      } else {
+        rows += `<div class="calc-result-row"><span class="r-label" style="color:var(--muted)">No volume bonus (need 20+ FTDs)</span><span class="r-val" style="color:var(--muted)">$0</span></div>`;
+      }
+
+      total = Math.round(totalBeforeCap);
+      // Apply $1,000 cap
+      if (total > COMMISSION_CAP) {
+        const capDiff = total - COMMISSION_CAP;
+        rows += `<div class="calc-result-row"><span class="r-label" style="color:var(--red)">Cap Applied (max $${COMMISSION_CAP})</span><span class="r-val" style="color:var(--red)">−$${capDiff.toLocaleString()}</span></div>`;
+        total = COMMISSION_CAP;
       }
     }
 
@@ -926,7 +1085,13 @@
     document.getElementById('calcTotal').textContent = '$' + total.toLocaleString();
 
     const badge = document.getElementById('calcTierBadge');
-    badge.textContent = vtier.name + (totalCount < 10 ? ' — No Commission' : ` · ×${vtier.multi}`);
+    if (totalCount < 10) {
+      badge.textContent = 'No Commission';
+    } else if (vtier.bonus === 0) {
+      badge.textContent = `${totalCount} FTDs · No Bonus Yet`;
+    } else {
+      badge.textContent = `${vtier.name} · +$${vtier.bonus} Bonus`;
+    }
     badge.style.color = vtier.color;
     badge.style.background = vtier.bg;
     badge.style.borderColor = vtier.color + '44';
@@ -949,16 +1114,20 @@
     container.innerHTML = '';
 
     const cards = [
-      { name: 'Below Min',  ftds: '0–9',   multi: 0,    color: '#f25c54', bg: 'rgba(242,92,84,0.06)',   border: 'rgba(242,92,84,0.25)' },
-      { name: 'Bronze',     ftds: '10–19', multi: 1.0,  color: '#cd7f32', bg: 'rgba(205,127,50,0.06)',  border: 'rgba(205,127,50,0.3)' },
-      { name: 'Silver',     ftds: '20–29', multi: 1.10, color: '#a8b2c8', bg: 'rgba(168,178,200,0.06)', border: 'rgba(168,178,200,0.3)' },
-      { name: 'Gold',       ftds: '30–39', multi: 1.22, color: '#c9a84c', bg: 'rgba(201,168,76,0.08)',  border: 'rgba(201,168,76,0.35)' },
-      { name: 'Platinum',   ftds: '40+',   multi: 1.35, color: '#e2f0ff', bg: 'rgba(226,240,255,0.06)', border: 'rgba(226,240,255,0.25)' },
+      { name: 'No Bonus',  ftds: '10–19',  bonus: 0,    color: '#8b93b8', bg: 'rgba(139,147,184,0.06)', border: 'rgba(139,147,184,0.25)' },
+      { name: 'Bronze',    ftds: '20+',    bonus: 50,   color: '#cd7f32', bg: 'rgba(205,127,50,0.06)',  border: 'rgba(205,127,50,0.3)' },
+      { name: 'Silver',    ftds: '50+',    bonus: 100,  color: '#a8b2c8', bg: 'rgba(168,178,200,0.06)', border: 'rgba(168,178,200,0.3)' },
+      { name: 'Gold',      ftds: '100+',   bonus: 200,  color: '#c9a84c', bg: 'rgba(201,168,76,0.08)',  border: 'rgba(201,168,76,0.35)' },
+      { name: 'Platinum',  ftds: '200+',   bonus: 500,  color: '#e2f0ff', bg: 'rgba(226,240,255,0.06)', border: 'rgba(226,240,255,0.25)' },
     ];
 
+    let cappedCount = 0;
     cards.forEach(c => {
-      const payout = c.multi === 0 ? 0 : Math.round(base * c.multi);
-      const bonus = payout - base;
+      const beforeCap = base + c.bonus;
+      const payout = Math.min(beforeCap, COMMISSION_CAP);
+      const wasCapped = beforeCap > COMMISSION_CAP;
+      if (wasCapped) cappedCount++;
+
       const card = document.createElement('div');
       card.style.cssText = `
         background: ${c.bg};
@@ -966,33 +1135,37 @@
         border-radius: 10px;
         padding: 18px 14px;
         text-align: center;
+        position: relative;
       `;
       card.innerHTML = `
+        ${wasCapped ? '<div style="position:absolute;top:6px;right:8px;font-size:9px;color:var(--red);font-family:\'DM Mono\',monospace;background:rgba(242,92,84,0.12);padding:2px 6px;border-radius:3px;letter-spacing:0.05em;">CAPPED</div>' : ''}
         <div style="font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:${c.color};">${c.name}</div>
         <div style="font-size:10px;color:var(--muted);font-family:'DM Mono',monospace;margin-top:2px;">${c.ftds} FTDs</div>
-        <div style="font-size:11px;color:${c.color};font-family:'DM Mono',monospace;margin-top:8px;">×${c.multi.toFixed(2)}</div>
+        <div style="font-size:11px;color:${c.color};font-family:'DM Mono',monospace;margin-top:8px;">+$${c.bonus}</div>
         <div style="font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:${c.color};margin-top:10px;line-height:1;">
           $${payout.toLocaleString()}
         </div>
         <div style="font-size:11px;color:var(--muted);margin-top:6px;font-family:'DM Mono',monospace;">
-          ${c.multi === 0 ? 'no commission' : (bonus > 0 ? '+$' + bonus.toLocaleString() + ' bonus' : 'base only')}
+          ${c.bonus === 0 ? 'base only' : (wasCapped ? 'hit $1K cap' : '+$' + c.bonus + ' bonus')}
         </div>
       `;
       container.appendChild(card);
     });
 
     // Insight text
-    const silver = Math.round(base * 1.10);
-    const gold = Math.round(base * 1.22);
-    const platinum = Math.round(base * 1.35);
-    const bronzeToPlat = platinum - base;
-    const silverToGold = gold - silver;
-    document.getElementById('vbInsight').innerHTML = `
-      With a base of <strong>$${base.toLocaleString()}</strong>, climbing from Bronze to Platinum is worth an extra
-      <strong style="color:var(--gold2)">$${bronzeToPlat.toLocaleString()}</strong> for the same commission base.
-      The single jump from Silver to Gold alone adds <strong style="color:var(--gold2)">$${silverToGold.toLocaleString()}</strong> —
-      that's the value of pushing from 29 to 30 FTDs in a month.
-    `;
+    const insight = document.getElementById('vbInsight');
+    if (base >= COMMISSION_CAP) {
+      insight.innerHTML = `Your base commission of <strong>$${base.toLocaleString()}</strong> already meets or exceeds the <strong style="color:var(--red)">$1,000 cap</strong>. Volume bonuses won't add to take-home pay at this level — the cap eats them. Consider raising the cap, or recognize that bonuses primarily motivate agents below the cap.`;
+    } else if (cappedCount > 0) {
+      const platinumPayout = Math.min(base + 500, COMMISSION_CAP);
+      const noBonusPayout = base;
+      const realGain = platinumPayout - noBonusPayout;
+      insight.innerHTML = `With a base of <strong>$${base.toLocaleString()}</strong>, the cap kicks in for some bonus tiers. The actual extra earned by climbing from no-bonus to Platinum is <strong style="color:var(--gold2)">$${realGain.toLocaleString()}</strong> (not the full $500), because the $1,000 cap absorbs the rest.`;
+    } else {
+      const platinumPayout = base + 500;
+      const realGain = platinumPayout - base;
+      insight.innerHTML = `With a base of <strong>$${base.toLocaleString()}</strong>, climbing from no-bonus to Platinum adds <strong style="color:var(--gold2)">$${realGain.toLocaleString()}</strong> to take-home pay — the full bonus, no cap interference.`;
+    }
   }
 
   document.getElementById('vbBase').addEventListener('input', recalcVB);
@@ -1003,6 +1176,87 @@
     });
   });
   recalcVB();
+
+  // ============================================
+  // MANAGER COMPENSATION CALCULATOR
+  // ============================================
+  const MANAGER_OVERRIDE_PCT = 0.20;
+  let agentList = [
+    { name: 'Agent 1', commission: 600 },
+    { name: 'Agent 2', commission: 800 },
+    { name: 'Agent 3', commission: 450 },
+    { name: 'Agent 4', commission: 1000 },
+  ];
+
+  function renderAgentInputs() {
+    const container = document.getElementById('agentCommissionInputs');
+    container.innerHTML = '';
+    agentList.forEach((agent, idx) => {
+      const row = document.createElement('div');
+      row.style.cssText = 'display:flex;align-items:center;gap:10px;margin-bottom:8px;';
+      row.innerHTML = `
+        <input type="text" class="calc-input agent-name" data-idx="${idx}" value="${agent.name}"
+          style="flex:1;padding:8px 12px;font-size:13px;font-family:'DM Sans',sans-serif;">
+        <div style="position:relative;width:130px;">
+          <span style="position:absolute;left:10px;top:50%;transform:translateY(-50%);color:var(--muted);font-family:'DM Mono',monospace;font-size:13px;">$</span>
+          <input type="number" class="calc-input agent-comm" data-idx="${idx}" value="${agent.commission}" min="0" max="1000" step="50"
+            style="width:100%;padding:8px 12px 8px 22px;text-align:right;font-size:14px;">
+        </div>
+      `;
+      container.appendChild(row);
+    });
+    // Listeners
+    document.querySelectorAll('.agent-name').forEach(inp => {
+      inp.addEventListener('input', e => {
+        agentList[parseInt(e.target.dataset.idx)].name = e.target.value;
+        recalcMgr();
+      });
+    });
+    document.querySelectorAll('.agent-comm').forEach(inp => {
+      inp.addEventListener('input', e => {
+        let val = parseFloat(e.target.value) || 0;
+        if (val > COMMISSION_CAP) val = COMMISSION_CAP;
+        agentList[parseInt(e.target.dataset.idx)].commission = val;
+        recalcMgr();
+      });
+    });
+  }
+
+  function recalcMgr() {
+    let rows = '';
+    let pool = 0;
+    agentList.forEach(agent => {
+      pool += agent.commission;
+      rows += `
+        <div class="calc-result-row">
+          <span class="r-label">${agent.name}</span>
+          <span class="r-val">$${agent.commission.toLocaleString()}</span>
+        </div>`;
+    });
+    rows += `<div class="calc-result-row" style="margin-top:6px;"><span class="r-label" style="color:var(--gold2);font-weight:600;">Total Agent Commission Pool</span><span class="r-val" style="color:var(--gold2);font-weight:600;">$${pool.toLocaleString()}</span></div>`;
+    const override = Math.round(pool * MANAGER_OVERRIDE_PCT);
+    rows += `<div class="calc-result-row"><span class="r-label" style="color:var(--gold);">Manager Override (20%)</span><span class="r-val" style="color:var(--gold);">$${override.toLocaleString()}</span></div>`;
+    rows += `<div class="calc-result-row" style="border-bottom:none;"><span class="r-label" style="color:var(--muted2);">Total Team Cost (USD portion)</span><span class="r-val" style="color:var(--muted2);">$${(pool + override).toLocaleString()}</span></div>`;
+
+    document.getElementById('mgrDetails').innerHTML = rows;
+    document.getElementById('mgrTotal').textContent = '$' + override.toLocaleString();
+  }
+
+  document.getElementById('addAgent').addEventListener('click', () => {
+    if (agentList.length >= 10) return;
+    agentList.push({ name: 'Agent ' + (agentList.length + 1), commission: 500 });
+    renderAgentInputs();
+    recalcMgr();
+  });
+  document.getElementById('removeAgent').addEventListener('click', () => {
+    if (agentList.length <= 1) return;
+    agentList.pop();
+    renderAgentInputs();
+    recalcMgr();
+  });
+
+  renderAgentInputs();
+  recalcMgr();
 </script>
 </body>
 </html>
